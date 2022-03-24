@@ -1,0 +1,253 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Damiu2Activity">
+
+    <LinearLayout
+        android:id="@+id/linearLayout2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/bgtpm"
+        android:orientation="vertical"
+        android:gravity="center"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Input Data Umum"
+            android:textSize="22dp"
+            android:layout_marginTop="-10dp"
+            android:fontFamily="@font/roboto_medium"
+            android:textColor="@color/white"
+            android:textStyle="bold"
+            android:layout_gravity="center"
+            />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:text="Depot Air Minum"
+            android:textSize="20dp"
+            android:fontFamily="@font/roboto_medium"
+            android:textColor="@color/white"
+            android:textFontWeight="600"
+            android:layout_gravity="center"
+            />
+
+    </LinearLayout>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_marginTop="-25dp"
+        android:background="@drawable/shapetpm"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout2">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="40dp"
+                android:text="Hasil Inspeksi Kesehatan Lingkungan"
+                android:textSize="15dp"
+                android:textColor="@color/black"
+                android:fontFamily="@font/roboto_medium"
+                android:textStyle="bold"
+                android:layout_marginLeft="20dp"
+                />
+            <RadioGroup
+                android:layout_width="wrap_content"
+                android:layout_marginLeft="24dp"
+                android:id="@+id/radioikl"
+                android:layout_height="wrap_content">
+                <RadioButton
+                    android:layout_width="wrap_content"
+                    android:text="Memenuhi Syarat"
+                    android:textSize="15dp"
+                    android:id="@+id/ikl0"
+                    android:layout_height="wrap_content"/>
+                <RadioButton
+                    android:layout_width="wrap_content"
+                    android:text="Tidak Memenuhi Syarat"
+                    android:textSize="15dp"
+                    android:id="@+id/ikl1"
+                    android:layout_height="wrap_content"/>
+            </RadioGroup>
+
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:text="Hasil Uji Sampel"
+                android:textSize="15dp"
+                android:textColor="@color/black"
+                android:fontFamily="@font/roboto_medium"
+                android:textStyle="bold"
+                android:layout_marginLeft="20dp"
+                />
+
+            <RadioGroup
+                android:layout_width="wrap_content"
+                android:layout_marginLeft="24dp"
+                android:id="@+id/radioujisampel"
+                android:layout_height="wrap_content">
+                <RadioButton
+                    android:layout_width="wrap_content"
+                    android:text="Memenuhi Syarat"
+                    android:textSize="15dp"
+                    android:id="@+id/sampel0"
+                    android:layout_height="wrap_content"/>
+                <RadioButton
+                    android:layout_width="wrap_content"
+                    android:text="Tidak Memenuhi Syarat"
+                    android:textSize="15dp"
+                    android:id="@+id/sampel1"
+                    android:layout_height="wrap_content"/>
+                <RadioButton
+                    android:layout_width="wrap_content"
+                    android:text="Belum Uji Sampel"
+                    android:textSize="15dp"
+                    android:id="@+id/sampel2"
+                    android:layout_height="wrap_content"/>
+            </RadioGroup>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:text="Kepemilikan Sertifikat Penjamaah"
+                android:textSize="15dp"
+                android:textColor="@color/black"
+                android:fontFamily="@font/roboto_medium"
+                android:textStyle="bold"
+                android:layout_marginLeft="20dp"
+                />
+            <RadioGroup
+                android:layout_width="wrap_content"
+                android:layout_marginLeft="24dp"
+                android:id="@+id/radiopenjamaah"
+                android:layout_height="wrap_content">
+                <RadioButton
+                    android:layout_width="wrap_content"
+                    android:text="Ada"
+                    android:id="@+id/penjamaah0"
+                    android:textSize="15dp"
+                    android:layout_height="wrap_content"/>
+                <RadioButton
+                    android:layout_width="wrap_content"
+                    android:text="Belum Ada"
+                    android:id="@+id/penjamaah1"
+                    android:textSize="15dp"
+                    android:layout_height="wrap_content"/>
+            </RadioGroup>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:text="Sertifikat Laik Sehat"
+                android:textSize="15dp"
+                android:textColor="@color/black"
+                android:fontFamily="@font/roboto_medium"
+                android:textStyle="bold"
+                android:layout_marginLeft="20dp"
+                />
+            <RadioGroup
+                android:layout_width="wrap_content"
+                android:layout_marginLeft="24dp"
+                android:id="@+id/radiolaksehat"
+                android:layout_height="wrap_content">
+                <RadioButton
+                    android:layout_width="wrap_content"
+                    android:text="Ada"
+                    android:id="@+id/laiksehat0"
+                    android:textSize="15dp"
+                    android:layout_height="wrap_content"/>
+                <RadioButton
+                    android:layout_width="wrap_content"
+                    android:text="Belum Ada"
+                    android:textSize="15dp"
+                    android:id="@+id/laiksehat1"
+                    android:layout_height="wrap_content"/>
+            </RadioGroup>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:text="Memiliki Izin Usaha"
+                android:textSize="15dp"
+                android:textColor="@color/black"
+                android:fontFamily="@font/roboto_medium"
+                android:textStyle="bold"
+                android:layout_marginLeft="20dp"
+                />
+
+            <RadioGroup
+                android:layout_width="wrap_content"
+                android:layout_marginLeft="24dp"
+                android:id="@+id/radioizinusaha"
+                android:layout_height="wrap_content">
+                <RadioButton
+                    android:layout_width="wrap_content"
+                    android:text="Ada"
+                    android:id="@+id/izinusaha0"
+                    android:textSize="15dp"
+                    android:layout_height="wrap_content"/>
+                <RadioButton
+                    android:layout_width="wrap_content"
+                    android:text="Belum Ada"
+                    android:textSize="15dp"
+                    android:id="@+id/izinusaha1"
+                    android:layout_height="wrap_content"/>
+            </RadioGroup>
+
+            <com.google.android.material.button.MaterialButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:text="Selesai"
+                android:textAllCaps="false"
+                android:textSize="15dp"
+                android:id="@+id/btnselesai"
+                android:layout_gravity="center"
+                android:background="@drawable/inputsignin"
+                app:backgroundTint="@color/hijau"
+                android:textColor="@color/white"
+                android:fontFamily="@font/roboto_medium"
+                android:textStyle="bold"
+                android:layout_marginBottom="20dp"
+                />
+
+            <com.google.android.material.button.MaterialButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:text="Selesai"
+                android:textAllCaps="false"
+                android:textSize="15dp"
+                android:visibility="gone"
+                android:id="@+id/btnupdate"
+                android:layout_gravity="center"
+                android:background="@drawable/inputsignin"
+                app:backgroundTint="@color/hijau"
+                android:textColor="@color/white"
+                android:fontFamily="@font/roboto_medium"
+                android:textStyle="bold"
+                android:layout_marginBottom="20dp"
+                />
+
+        </LinearLayout>
+    </ScrollView>
+</androidx.constraintlayout.widget.ConstraintLayout>

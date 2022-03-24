@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="hijau">#004E00</color>
+    <color name="putihtulang">#F9F9F9</color>
+    <color name="abuputih">#E4E4E4</color>
+    <color name="hijaumentah">#128612</color>
+    <color name="biru">#03A9F4</color>
+    <color name="kuning">#FFEB3B</color>
+    <color name="orange">#F44336</color>
+    <color name="ungu">#9C27B0</color>
+</resources>

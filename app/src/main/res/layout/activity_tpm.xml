@@ -1,0 +1,225 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".TpmActivity">
+
+    <LinearLayout
+        android:id="@+id/linearLayout2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/bgtpm"
+        android:orientation="vertical"
+        android:gravity="center"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Input Data Umum"
+            android:textSize="22dp"
+            android:layout_marginTop="-10dp"
+            android:fontFamily="@font/roboto_medium"
+            android:textColor="@color/white"
+            android:textStyle="bold"
+            android:layout_gravity="center"
+            />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:text="Tempat Pengolahan Makanan"
+            android:textSize="20dp"
+            android:fontFamily="@font/roboto_medium"
+            android:textColor="@color/white"
+            android:textFontWeight="600"
+            android:layout_gravity="center"
+            />
+
+    </LinearLayout>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_marginTop="-25dp"
+        android:background="@drawable/shapetpm"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout2">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="40dp"
+                android:text="Nama Tempat Pengolahan Makanan"
+                android:textSize="15dp"
+                android:textColor="@color/black"
+                android:fontFamily="@font/roboto_medium"
+                android:textStyle="bold"
+                android:layout_marginLeft="20dp"
+                />
+            <com.google.android.material.textfield.TextInputEditText
+                android:layout_width="match_parent"
+                android:background="@drawable/inputsignin"
+                android:layout_marginLeft="24dp"
+                android:layout_marginTop="15dp"
+                android:layout_marginRight="24dp"
+                android:id="@+id/edttpm"
+                android:paddingLeft="10dp"
+                android:layout_height="wrap_content"/>
+
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:text="Nama Kelurahan/Desa"
+                android:textSize="15dp"
+                android:textColor="@color/black"
+                android:fontFamily="@font/roboto_medium"
+                android:textStyle="bold"
+                android:layout_marginLeft="20dp"
+                />
+            <Spinner
+                android:layout_width="match_parent"
+                android:background="@drawable/inputsignin"
+                android:layout_marginLeft="24dp"
+                android:layout_marginTop="15dp"
+                android:layout_marginRight="24dp"
+                android:id="@+id/spndesa"
+                android:paddingLeft="10dp"
+                android:layout_height="wrap_content"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:text="Nama Pemilik"
+                android:textSize="15dp"
+                android:textColor="@color/black"
+                android:fontFamily="@font/roboto_medium"
+                android:textStyle="bold"
+                android:layout_marginLeft="20dp"
+                />
+            <com.google.android.material.textfield.TextInputEditText
+                android:layout_width="match_parent"
+                android:background="@drawable/inputsignin"
+                android:layout_marginLeft="24dp"
+                android:layout_marginTop="15dp"
+                android:layout_marginRight="24dp"
+                android:id="@+id/edtnama"
+                android:paddingLeft="10dp"
+                android:layout_height="wrap_content"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:text="Alamat"
+                android:textSize="15dp"
+                android:textColor="@color/black"
+                android:fontFamily="@font/roboto_medium"
+                android:textStyle="bold"
+                android:layout_marginLeft="20dp"
+                />
+            <com.google.android.material.textfield.TextInputEditText
+                android:layout_width="match_parent"
+                android:background="@drawable/inputsignin"
+                android:layout_marginLeft="24dp"
+                android:layout_marginTop="15dp"
+                android:layout_marginRight="24dp"
+                android:id="@+id/edtalamat"
+                android:paddingLeft="10dp"
+                android:layout_height="wrap_content"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:text="Golongan"
+                android:textSize="15dp"
+                android:textColor="@color/black"
+                android:fontFamily="@font/roboto_medium"
+                android:textStyle="bold"
+                android:layout_marginLeft="20dp"
+                />
+            <Spinner
+                android:layout_width="match_parent"
+                android:background="@drawable/inputsignin"
+                android:layout_marginLeft="24dp"
+                android:layout_marginTop="15dp"
+                android:layout_marginRight="24dp"
+                android:id="@+id/spngolongan"
+                android:paddingLeft="10dp"
+                android:layout_height="wrap_content"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:text="Jumlah Karyawan"
+                android:textSize="15dp"
+                android:textColor="@color/black"
+                android:fontFamily="@font/roboto_medium"
+                android:textStyle="bold"
+                android:layout_marginLeft="20dp"
+                />
+            <com.google.android.material.textfield.TextInputEditText
+                android:layout_width="match_parent"
+                android:background="@drawable/inputsignin"
+                android:layout_marginLeft="24dp"
+                android:layout_marginTop="15dp"
+                android:layout_marginRight="24dp"
+                android:id="@+id/edtjumlah"
+                android:inputType="number"
+                android:paddingLeft="10dp"
+                android:layout_height="wrap_content"/>
+
+            <com.google.android.material.button.MaterialButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:text="Selanjutnya"
+                android:textAllCaps="false"
+                android:id="@+id/btnselanjutnya"
+                android:textSize="15dp"
+                android:layout_gravity="center"
+                android:background="@drawable/inputsignin"
+                app:backgroundTint="@color/hijau"
+                android:textColor="@color/white"
+                android:fontFamily="@font/roboto_medium"
+                android:textStyle="bold"
+                android:layout_marginBottom="20dp"
+                />
+
+            <com.google.android.material.button.MaterialButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:text="Selanjutnya"
+                android:textAllCaps="false"
+                android:visibility="gone"
+                android:id="@+id/btnupdate"
+                android:textSize="15dp"
+                android:layout_gravity="center"
+                android:background="@drawable/inputsignin"
+                app:backgroundTint="@color/hijau"
+                android:textColor="@color/white"
+                android:fontFamily="@font/roboto_medium"
+                android:textStyle="bold"
+                android:layout_marginBottom="20dp"
+                />
+
+        </LinearLayout>
+    </ScrollView>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="username">Username</string>
+    <string name="signin">Sign In</string>
+    <string name="beranda">Beranda</string>
+    <string name="lihatdata">Lihat Data</string>
+    <string name="lihatgrafik">Lihat Grafik</string>
+    <string name="password">Password</string>
+    <string name="pegawai">Tambah Pegawai</string>
+</resources>

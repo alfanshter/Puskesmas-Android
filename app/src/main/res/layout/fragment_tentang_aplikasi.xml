@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+    </data>
+
+    <com.google.android.material.card.MaterialCardView
+        android:layout_width="322dp"
+        android:background="@color/putihtulang"
+        android:layout_height="wrap_content"
+        app:cardCornerRadius="10dp">
+
+        <LinearLayout
+            android:layout_width="322dp"
+            android:layout_marginBottom="20dp"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            tools:context=".TentangAplikasiFragment">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:layout_width="30dp"
+                    android:id="@+id/btnclose"
+                    android:layout_height="30dp"
+                    android:background="@drawable/ic_baseline_close_24"
+                    android:layout_margin="10dp"
+                    />
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_gravity="center"
+                    android:layout_height="wrap_content">
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textSize="21dp"
+                        android:layout_centerHorizontal="true"
+                        android:id="@+id/tentang"
+                        android:layout_gravity="center"
+                        android:textColor="@color/black"
+                        android:textStyle="bold"
+                        android:fontFamily="@font/roboto_medium"
+                        android:text="Tentang Aplikasi"
+                        />
+                    <View
+                        android:layout_width="175dp"
+                        android:layout_centerHorizontal="true"
+                        android:layout_below="@id/tentang"
+                        android:layout_marginTop="10dp"
+                        android:layout_height="3dp"
+                        android:background="@color/hijau"
+                        android:layout_gravity="center"/>
+                </RelativeLayout>
+
+
+            </LinearLayout>
+
+
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="16dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginLeft="20dp"
+                android:fontFamily="@font/roboto_medium"
+                android:text="TPM = Tempat Pengolahan Makanan"
+                android:textColor="@color/black"
+                />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="16dp"
+                android:layout_marginTop="5dp"
+                android:layout_marginLeft="20dp"
+                android:fontFamily="@font/roboto_medium"
+                android:text="DAMIU = Depot Air Minum Umum"
+                android:textColor="@color/black"
+                />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="16dp"
+                android:layout_marginTop="5dp"
+                android:layout_marginLeft="20dp"
+                android:fontFamily="@font/roboto_medium"
+                android:text="KESLING = KESehatan LINGkungan"
+                android:textColor="@color/black"
+                />
+
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="16dp"
+                android:layout_marginTop="5dp"
+                android:layout_marginLeft="20dp"
+                android:fontFamily="@font/roboto_medium"
+                android:text="IKL = Inspeksi Kesehatan Lingkungan"
+                android:textColor="@color/black"
+                />
+
+
+        </LinearLayout>
+    </com.google.android.material.card.MaterialCardView>
+
+</layout>

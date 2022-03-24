@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+    </data>
+
+    <com.google.android.material.card.MaterialCardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:cardCornerRadius="10dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_marginBottom="30dp"
+            tools:context=".TentangAplikasiFragment">
+
+            <ImageView
+                android:layout_width="30dp"
+                android:id="@+id/btnclose"
+                android:layout_height="30dp"
+                android:background="@drawable/ic_baseline_close_24"
+                android:layout_margin="20dp"
+                />
+
+            <ImageView
+                android:layout_width="70dp"
+                android:layout_height="60dp"
+                android:layout_gravity="center"
+                android:background="@drawable/profile"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="21dp"
+                android:textStyle="bold"
+                android:fontFamily="@font/roboto_medium"
+                android:text="Admin"
+                android:id="@+id/txtnama"
+                android:textColor="@color/black"
+                android:layout_gravity="center"
+                android:layout_marginTop="10dp"
+                />
+
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="13dp"
+                android:id="@+id/txtalamat"
+                android:fontFamily="@font/roboto_medium"
+                android:text="Kecamatan Sukamara"
+                android:textColor="@color/black"
+                android:layout_gravity="center"
+                />
+
+            <com.google.android.material.button.MaterialButton
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/inputsignin"
+                app:backgroundTint="@color/hijau"
+                android:textColor="@color/white"
+                android:text="Logout"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
+                android:id="@+id/btnlogout"
+                android:layout_marginTop="40dp"
+                android:textAllCaps="false"
+                />
+        </LinearLayout>
+    </com.google.android.material.card.MaterialCardView>
+
+</layout>
