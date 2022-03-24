@@ -210,6 +210,7 @@ class BerandaAdminFragment : Fragment(),AnkoLogger {
         adapter.renewItems(images)
         imageSlider.setSliderAdapter(adapter)
         imageSlider.isAutoCycle = true
+        imageSlider.scrollTimeInSec = 3
         imageSlider.startAutoCycle()
     }
 

@@ -220,28 +220,28 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="IKL : Hasil Uji Samepl"
+                android:text="HUS : Hasil Uji Sampe"
                 android:layout_marginTop="5dp"
                 />
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="IKL : Pelatihan Penjamaah"
+                android:text="PP : Pelatihan Penjamaah"
                 android:layout_marginTop="5dp"
                 />
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="IKL : Sertifikat Laik Sehat"
+                android:text="SLS : Sertifikat Laik Sehat"
                 android:layout_marginTop="5dp"
                 />
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="IKL : Izin Usaha"
+                android:text="IU : Izin Usaha"
                 android:layout_marginTop="5dp"
                 />
 

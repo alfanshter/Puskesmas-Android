@@ -52,6 +52,7 @@ class DamiuGrafikActivity : AppCompatActivity() {
         val ada = ArrayList<BarEntry>()
 
         val datakelamin = arrayOf(
+            "Kecamatan",
             "Kel.Mendawai",
             "Kel.Padang",
             "Desa Pudu",
@@ -76,114 +77,225 @@ class DamiuGrafikActivity : AppCompatActivity() {
                     view: View, position: Int, id: Long
                 ) {
                     desa = datakelamin[position]
-
-                    api.getdatadam(desa!!).enqueue(object : Callback<GrafikResponse> {
-                        override fun onResponse(
-                            call: Call<GrafikResponse>,
-                            response: Response<GrafikResponse>
-                        ) {
-                            try {
-                                if (response.isSuccessful){
-                                    scoreList.clear()
-                                    scoreList.add(Score("IKL", response.body()!!.ikl0!!))
-                                    scoreList.add(Score("IKL", response.body()!!.ikl1!!))
-                                    scoreList.add(Score("HUS", response.body()!!.sampel0!!))
-                                    scoreList.add(Score("HUS", response.body()!!.sampel1!!))
-                                    scoreList.add(Score("HUS", response.body()!!.sampel2!!))
-                                    scoreList.add(Score("PP", response.body()!!.penjamaah0!!))
-                                    scoreList.add(Score("PP", response.body()!!.penjamaah1!!))
-                                    scoreList.add(Score("SLS", response.body()!!.laiksehat0!!))
-                                    scoreList.add(Score("SLS", response.body()!!.laiksehat1!!))
-                                    scoreList.add(Score("IU", response.body()!!.izin0!!))
-                                    scoreList.add(Score("IU", response.body()!!.izin1!!))
-
-
-
-                                    initbardamiu()
-                                    val entries: ArrayList<BarEntry> = ArrayList()
+                    if (desa=="Kecamatan"){
+                        api.getdatadam_kecamatan().enqueue(object : Callback<GrafikResponse> {
+                            override fun onResponse(
+                                call: Call<GrafikResponse>,
+                                response: Response<GrafikResponse>
+                            ) {
+                                try {
+                                    if (response.isSuccessful){
+                                        scoreList.clear()
+                                        scoreList.add(Score("IKL", response.body()!!.ikl0!!))
+                                        scoreList.add(Score("IKL", response.body()!!.ikl1!!))
+                                        scoreList.add(Score("HUS", response.body()!!.sampel0!!))
+                                        scoreList.add(Score("HUS", response.body()!!.sampel1!!))
+                                        scoreList.add(Score("HUS", response.body()!!.sampel2!!))
+                                        scoreList.add(Score("PP", response.body()!!.penjamaah0!!))
+                                        scoreList.add(Score("PP", response.body()!!.penjamaah1!!))
+                                        scoreList.add(Score("SLS", response.body()!!.laiksehat0!!))
+                                        scoreList.add(Score("SLS", response.body()!!.laiksehat1!!))
+                                        scoreList.add(Score("IU", response.body()!!.izin0!!))
+                                        scoreList.add(Score("IU", response.body()!!.izin1!!))
 
 
 
+                                        initbardamiu()
+                                        val entries: ArrayList<BarEntry> = ArrayList()
 
-                                    //you can replace this data object with  your custom object
-                                    for (i in scoreList.indices) {
-                                        val score = scoreList[i]
-                                        entries.add(BarEntry(i.toFloat(), score.score.toFloat()))
+
+
+
+                                        //you can replace this data object with  your custom object
+                                        for (i in scoreList.indices) {
+                                            val score = scoreList[i]
+                                            entries.add(BarEntry(i.toFloat(), score.score.toFloat()))
+                                        }
+
+                                        val barDataSet = BarDataSet(entries, "")
+
+                                        barDataSet.colors = ColorTemplate.createColors(intArrayOf(resources.getColor(R.color.hijau),resources.getColor(R.color.biru),resources.getColor(R.color.hijau),resources.getColor(R.color.biru),resources.getColor(R.color.kuning),resources.getColor(R.color.orange),resources.getColor(R.color.ungu),resources.getColor(R.color.orange),resources.getColor(R.color.ungu),resources.getColor(R.color.orange),resources.getColor(R.color.ungu)))
+
+
+                                        val data = BarData(barDataSet)
+                                        bardamiu.data = data
+
+                                        bardamiu.invalidate()
+
+                                        /*
+
+
+                                          memenuhisyarat.add(BarEntry(0F, 10f))
+                                          memenuhisyarat.add(BarEntry(1F, 11F))
+                                          memenuhisyarat.add(BarEntry(2F, 19F))
+                                          memenuhisyarat.add(BarEntry(3F, 10F))
+                                          memenuhisyarat.add(BarEntry(4F, 18F))
+                                          memenuhisyarat.add(BarEntry(5F, 0f))
+
+                                          tidakmemenuhisyarat.add(BarEntry(0F, 8f))
+                                          tidakmemenuhisyarat.add(BarEntry(1F, 9F))
+                                          tidakmemenuhisyarat.add(BarEntry(2F, 2F))
+                                          tidakmemenuhisyarat.add(BarEntry(3F, 1F))
+                                          tidakmemenuhisyarat.add(BarEntry(4F, 1F))
+                                          tidakmemenuhisyarat.add(BarEntry(5f, 0f))
+
+
+                                          ada.add(BarEntry(1F, 13F))
+                                          ada.add(BarEntry(2F, 11F))
+                                          ada.add(BarEntry(3F, 10F))
+                                          ada.add(BarEntry(4F, 7F))
+                                          ada.add(BarEntry(5f, 0f))
+
+                                          val memenuhisyaratBarDataSet = BarDataSet(memenuhisyarat, "Hasil Inspeksi Kesling")
+                                          memenuhisyaratBarDataSet.color = Color.BLUE
+
+                                          val tidakmemenuhisyaratBarDataSet = BarDataSet(tidakmemenuhisyarat, "Tidak Memenuhi Syarat")
+                                          tidakmemenuhisyaratBarDataSet.color = Color.GREEN
+
+                                          val belumujisampel = BarDataSet(tidakmemenuhisyarat, "Belum Uji Sampel")
+                                          belumujisampel.color = Color.CYAN
+
+
+                                          val adaBarDataSet = BarDataSet(ada, "Ada")
+                                          adaBarDataSet.color = Color.RED
+
+
+                                          val tidakada = BarDataSet(ada, "Tidak Ada")
+                                          tidakada.color = Color.GRAY
+
+                                          val groupSpace = 0.08f
+                                          val barSpace = 0.03f
+                                          val barWidth = 0.27f
+                                          val groupBar = BarData(memenuhisyaratBarDataSet, tidakmemenuhisyaratBarDataSet, adaBarDataSet)
+                                          groupBar.barWidth = barWidth
+                                          bardamiu.data = groupBar
+                                          bardamiu.notifyDataSetChanged()
+                                          bardamiu.groupBars(0f, groupSpace, barSpace)
+                                          bardamiu.animateXY(100, 500)
+                                          bardamiu.invalidate()*/
+                                    }else{
+
                                     }
-
-                                    val barDataSet = BarDataSet(entries, "")
-
-                                    barDataSet.colors = ColorTemplate.createColors(intArrayOf(resources.getColor(R.color.hijau),resources.getColor(R.color.biru),resources.getColor(R.color.hijau),resources.getColor(R.color.biru),resources.getColor(R.color.kuning),resources.getColor(R.color.orange),resources.getColor(R.color.ungu),resources.getColor(R.color.orange),resources.getColor(R.color.ungu),resources.getColor(R.color.orange),resources.getColor(R.color.ungu)))
-
-
-                                    val data = BarData(barDataSet)
-                                    bardamiu.data = data
-
-                                    bardamiu.invalidate()
-
-                                  /*
-
-
-                                    memenuhisyarat.add(BarEntry(0F, 10f))
-                                    memenuhisyarat.add(BarEntry(1F, 11F))
-                                    memenuhisyarat.add(BarEntry(2F, 19F))
-                                    memenuhisyarat.add(BarEntry(3F, 10F))
-                                    memenuhisyarat.add(BarEntry(4F, 18F))
-                                    memenuhisyarat.add(BarEntry(5F, 0f))
-
-                                    tidakmemenuhisyarat.add(BarEntry(0F, 8f))
-                                    tidakmemenuhisyarat.add(BarEntry(1F, 9F))
-                                    tidakmemenuhisyarat.add(BarEntry(2F, 2F))
-                                    tidakmemenuhisyarat.add(BarEntry(3F, 1F))
-                                    tidakmemenuhisyarat.add(BarEntry(4F, 1F))
-                                    tidakmemenuhisyarat.add(BarEntry(5f, 0f))
-
-
-                                    ada.add(BarEntry(1F, 13F))
-                                    ada.add(BarEntry(2F, 11F))
-                                    ada.add(BarEntry(3F, 10F))
-                                    ada.add(BarEntry(4F, 7F))
-                                    ada.add(BarEntry(5f, 0f))
-
-                                    val memenuhisyaratBarDataSet = BarDataSet(memenuhisyarat, "Hasil Inspeksi Kesling")
-                                    memenuhisyaratBarDataSet.color = Color.BLUE
-
-                                    val tidakmemenuhisyaratBarDataSet = BarDataSet(tidakmemenuhisyarat, "Tidak Memenuhi Syarat")
-                                    tidakmemenuhisyaratBarDataSet.color = Color.GREEN
-
-                                    val belumujisampel = BarDataSet(tidakmemenuhisyarat, "Belum Uji Sampel")
-                                    belumujisampel.color = Color.CYAN
-
-
-                                    val adaBarDataSet = BarDataSet(ada, "Ada")
-                                    adaBarDataSet.color = Color.RED
-
-
-                                    val tidakada = BarDataSet(ada, "Tidak Ada")
-                                    tidakada.color = Color.GRAY
-
-                                    val groupSpace = 0.08f
-                                    val barSpace = 0.03f
-                                    val barWidth = 0.27f
-                                    val groupBar = BarData(memenuhisyaratBarDataSet, tidakmemenuhisyaratBarDataSet, adaBarDataSet)
-                                    groupBar.barWidth = barWidth
-                                    bardamiu.data = groupBar
-                                    bardamiu.notifyDataSetChanged()
-                                    bardamiu.groupBars(0f, groupSpace, barSpace)
-                                    bardamiu.animateXY(100, 500)
-                                    bardamiu.invalidate()*/
-                                }else{
+                                } catch (e: Exception) {
 
                                 }
-                            } catch (e: Exception) {
-
                             }
-                        }
 
-                        override fun onFailure(call: Call<GrafikResponse>, t: Throwable) {
-                            TODO("Not yet implemented")
-                        }
-                    })
+                            override fun onFailure(call: Call<GrafikResponse>, t: Throwable) {
+                                TODO("Not yet implemented")
+                            }
+                        })
+
+                    }else{
+                        api.getdatadam(desa!!).enqueue(object : Callback<GrafikResponse> {
+                            override fun onResponse(
+                                call: Call<GrafikResponse>,
+                                response: Response<GrafikResponse>
+                            ) {
+                                try {
+                                    if (response.isSuccessful){
+                                        scoreList.clear()
+                                        scoreList.add(Score("IKL", response.body()!!.ikl0!!))
+                                        scoreList.add(Score("IKL", response.body()!!.ikl1!!))
+                                        scoreList.add(Score("HUS", response.body()!!.sampel0!!))
+                                        scoreList.add(Score("HUS", response.body()!!.sampel1!!))
+                                        scoreList.add(Score("HUS", response.body()!!.sampel2!!))
+                                        scoreList.add(Score("PP", response.body()!!.penjamaah0!!))
+                                        scoreList.add(Score("PP", response.body()!!.penjamaah1!!))
+                                        scoreList.add(Score("SLS", response.body()!!.laiksehat0!!))
+                                        scoreList.add(Score("SLS", response.body()!!.laiksehat1!!))
+                                        scoreList.add(Score("IU", response.body()!!.izin0!!))
+                                        scoreList.add(Score("IU", response.body()!!.izin1!!))
+
+
+
+                                        initbardamiu()
+                                        val entries: ArrayList<BarEntry> = ArrayList()
+
+
+
+
+                                        //you can replace this data object with  your custom object
+                                        for (i in scoreList.indices) {
+                                            val score = scoreList[i]
+                                            entries.add(BarEntry(i.toFloat(), score.score.toFloat()))
+                                        }
+
+                                        val barDataSet = BarDataSet(entries, "")
+
+                                        barDataSet.colors = ColorTemplate.createColors(intArrayOf(resources.getColor(R.color.hijau),resources.getColor(R.color.biru),resources.getColor(R.color.hijau),resources.getColor(R.color.biru),resources.getColor(R.color.kuning),resources.getColor(R.color.orange),resources.getColor(R.color.ungu),resources.getColor(R.color.orange),resources.getColor(R.color.ungu),resources.getColor(R.color.orange),resources.getColor(R.color.ungu)))
+
+
+                                        val data = BarData(barDataSet)
+                                        bardamiu.data = data
+
+                                        bardamiu.invalidate()
+
+                                        /*
+
+
+                                          memenuhisyarat.add(BarEntry(0F, 10f))
+                                          memenuhisyarat.add(BarEntry(1F, 11F))
+                                          memenuhisyarat.add(BarEntry(2F, 19F))
+                                          memenuhisyarat.add(BarEntry(3F, 10F))
+                                          memenuhisyarat.add(BarEntry(4F, 18F))
+                                          memenuhisyarat.add(BarEntry(5F, 0f))
+
+                                          tidakmemenuhisyarat.add(BarEntry(0F, 8f))
+                                          tidakmemenuhisyarat.add(BarEntry(1F, 9F))
+                                          tidakmemenuhisyarat.add(BarEntry(2F, 2F))
+                                          tidakmemenuhisyarat.add(BarEntry(3F, 1F))
+                                          tidakmemenuhisyarat.add(BarEntry(4F, 1F))
+                                          tidakmemenuhisyarat.add(BarEntry(5f, 0f))
+
+
+                                          ada.add(BarEntry(1F, 13F))
+                                          ada.add(BarEntry(2F, 11F))
+                                          ada.add(BarEntry(3F, 10F))
+                                          ada.add(BarEntry(4F, 7F))
+                                          ada.add(BarEntry(5f, 0f))
+
+                                          val memenuhisyaratBarDataSet = BarDataSet(memenuhisyarat, "Hasil Inspeksi Kesling")
+                                          memenuhisyaratBarDataSet.color = Color.BLUE
+
+                                          val tidakmemenuhisyaratBarDataSet = BarDataSet(tidakmemenuhisyarat, "Tidak Memenuhi Syarat")
+                                          tidakmemenuhisyaratBarDataSet.color = Color.GREEN
+
+                                          val belumujisampel = BarDataSet(tidakmemenuhisyarat, "Belum Uji Sampel")
+                                          belumujisampel.color = Color.CYAN
+
+
+                                          val adaBarDataSet = BarDataSet(ada, "Ada")
+                                          adaBarDataSet.color = Color.RED
+
+
+                                          val tidakada = BarDataSet(ada, "Tidak Ada")
+                                          tidakada.color = Color.GRAY
+
+                                          val groupSpace = 0.08f
+                                          val barSpace = 0.03f
+                                          val barWidth = 0.27f
+                                          val groupBar = BarData(memenuhisyaratBarDataSet, tidakmemenuhisyaratBarDataSet, adaBarDataSet)
+                                          groupBar.barWidth = barWidth
+                                          bardamiu.data = groupBar
+                                          bardamiu.notifyDataSetChanged()
+                                          bardamiu.groupBars(0f, groupSpace, barSpace)
+                                          bardamiu.animateXY(100, 500)
+                                          bardamiu.invalidate()*/
+                                    }else{
+
+                                    }
+                                } catch (e: Exception) {
+
+                                }
+                            }
+
+                            override fun onFailure(call: Call<GrafikResponse>, t: Throwable) {
+                                TODO("Not yet implemented")
+                            }
+                        })
+
+                    }
 
 
                 }

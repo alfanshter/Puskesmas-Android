@@ -132,6 +132,13 @@ interface ApiService {
         @Query("desa") desa : String
     ): Call<GrafikResponse>
 
+    //Get Grafik TPM Kecamatan
+    @GET("getdatatpmall")
+    fun getdatatpm_kecamatan(): Call<GrafikResponse>
+
+    //Get Grafik DAMIU Kecamatan
+    @GET("getdatadam_all")
+    fun getdatadam_kecamatan(): Call<GrafikResponse>
 
     @FormUrlEncoded
     @POST("deletetpm")
